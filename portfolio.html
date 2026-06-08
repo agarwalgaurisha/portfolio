@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Gurisha Agarwal | Data Analyst & AI Portfolio</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .navbar {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 0.6rem 1.3rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #cbd5e1;
+      background: transparent;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: 0.2s;
+      text-decoration: none;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      border-color: #2563eb;
+      background: #f0f4ff;
+    }
+
+    .hero {
+      padding: 4rem 0 3rem 0;
+      background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-content {
+      flex: 1.4;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: #1e40af;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #2563eb, #7c3aed);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.5rem 0;
+    }
+
+    .pill {
+      background: white;
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      border-left: 5px solid #2563eb;
+      padding-left: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: all 0.25s;
+      border: 1px solid #eef2ff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+      border-color: #cbdffc;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .insight-list {
+      list-style: none;
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+
+    .insight-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .insight-list li i {
+      color: #2563eb;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .tech-tag {
+      background: #eef2ff;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1e40af;
+    }
+
+    .ai-showcase {
+      background: linear-gradient(120deg, #0f172a, #1e293b);
+      color: white;
+      border-radius: 32px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .ai-badge {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .resume-snapshot {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #eef2ff;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+      color: #475569;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">Gaurisha Agarwal</div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills-ai">AI Edge</a>
+      <a href="#about-me">Profile</a>
+      <a href="resume.pdf" target="_blank" class="btn-primary" style="padding:0.5rem 1.2rem"><i class="fas fa-file-pdf"></i> Resume</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content" data-aos="fade-up">
+      <span class="hero-badge"><i class="fas fa-chart-line"></i> Data Analyst | Gen AI Engineer</span>
+      <h1>Turning data into <span class="highlight">intelligent decisions</span> with AI & analytics</h1>
+      <p style="font-size:1.1rem; color:#334155;">8+ interactive dashboards • Customer Churn • Financial Analysis • Road Safety • LLM-powered RAG</p>
+      <div class="skill-pills">
+        <span class="pill"><i class="fab fa-python"></i> Python/Pandas</span>
+        <span class="pill"><i class="fas fa-chart-pie"></i> Power BI/Tableau</span>
+        <span class="pill"><i class="fas fa-database"></i> SQL</span>
+        <span class="pill"><i class="fas fa-robot"></i> RAG/LangChain</span>
+        <span class="pill"><i class="fas fa-magic"></i> Gen AI / Claude / Gemini</span>
+      </div>
+      <a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> Explore Dashboards</a>
+    </div>
+    <div data-aos="fade-left" style="flex:1; text-align: center;">
+      <div style="background: linear-gradient(145deg, #d9e6ff, white); border-radius: 2rem; padding: 1.5rem;">
+        <i class="fas fa-chart-line" style="font-size: 5rem; color:#2563eb;"></i>
+        <i class="fas fa-chart-bar" style="font-size: 3rem; margin-left: 0.5rem; color:#4f46e5;"></i>
+        <p style="margin-top: 1rem; font-weight:600">Power BI • Python • Actionable Insights</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- PROJECTS SECTION: includes all detailed projects -->
+  <section id="projects" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-chart-simple"></i> Featured Analytics & BI Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- Ola Cab Power BI Dashboard -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-taxi"></i></div>
+        <h3>Ola Cab Power BI Dashboard</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-chart-line"></i> Ride volume trends, booking status & vehicle type preferences.</li>
+          <li><i class="fas fa-star"></i> Customer ratings, cancellation reasons & payment method revenue to enhance service reliability.</li>
+          <li><i class="fas fa-tachometer-alt"></i> High-value customers, ride distance patterns & driver performance for optimized allocation.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">Data Modeling</span></div>
+      </div>
+
+      <!-- Road Accident Analysis Dashboard (new detailed) -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-car-crash"></i></div>
+        <h3>Road Accident Analysis Dashboard</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-chart-pie"></i> Casualties by accident severity, urban vs rural distribution.</li>
+          <li><i class="fas fa-sun"></i> Daylight vs darkness accident analysis & road surface impact.</li>
+          <li><i class="fas fa-calendar-alt"></i> Monthly casualty trend (CY vs PY) with interactive filters & drill-down.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">Power Query</span><span class="tech-tag">DAX</span><span class="tech-tag">Data Storytelling</span></div>
+      </div>
+
+      <!-- Customer Churn Analysis Dashboard -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-user-friends"></i></div>
+        <h3>Customer Churn Analysis Dashboard</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-percent"></i> Overall churn rate & retention overview, contract type segmentation.</li>
+          <li><i class="fas fa-chart-timeline"></i> Tenure-wise churn trends, monthly charges & risk type segmentation.</li>
+          <li><i class="fas fa-concierge-bell"></i> Service-based customer behavior insights & business-driven retention strategies.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">KPI Tracking</span><span class="tech-tag">Data Viz</span></div>
+      </div>
+
+      <!-- Financial Analysis Dashboard -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Financial Analysis Dashboard</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-sliders-h"></i> Dynamic metric selection using parameters & drill-through analysis.</li>
+          <li><i class="fas fa-chart-area"></i> Customer segment profitability, state-wise performance & gender-wise fee distribution.</li>
+          <li><i class="fas fa-chart-line"></i> Monthly trend analysis & transaction status monitoring.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span><span class="tech-tag">Power Query</span><span class="tech-tag">Drill-through</span></div>
+      </div>
+
+      <!-- GDP Growth Analysis (Python) -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-globe-americas"></i></div>
+        <h3>GDP Growth Analysis</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-code"></i> Performed GDP growth analysis using Python & core data-analytics operations.</li>
+          <li><i class="fas fa-chart-scatter"></i> Interactive visualizations with Plotly & Pandas for economic trends.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">Plotly</span></div>
+      </div>
+
+      <!-- Heart Failure EDA -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>Heart Failure EDA</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-chart-bar"></i> Exploratory Data Analysis on Kaggle dataset: univariate & bivariate analysis.</li>
+          <li><i class="fas fa-chart-simple"></i> Used NumPy, Pandas, Seaborn to uncover clinical correlations.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">Seaborn</span><span class="tech-tag">NumPy</span><span class="tech-tag">Pandas</span></div>
+      </div>
+
+      <!-- Market Analysis (additional from initial list) -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-chart-simple"></i></div>
+        <h3>Market Basket Analysis</h3>
+        <ul class="insight-list">
+          <li><i class="fas fa-link"></i> Association rule mining (Apriori) to uncover product bundling opportunities.</li>
+          <li><i class="fas fa-users"></i> Customer segmentation using RFM & clustering for targeted campaigns.</li>
+        </ul>
+        <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">MLxtend</span><span class="tech-tag">Seaborn</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Power BI + Analytics Skills Spotlight -->
+  <section data-aos="fade-up" style="margin: 2rem 0;">
+    <div style="background: #eef2ff; border-radius: 28px; padding: 1.8rem;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chalkboard-teacher"></i> Dashboard & Analytical Capabilities</h3>
+      <p style="margin-bottom: 0.8rem;">✔️ Interactive Navigation, Bookmarks & Drill-through Pages  ✔️ Dynamic Parameters & Measures  ✔️ Data Transformation (Power Query)  ✔️ KPI Design & Business Storytelling  ✔️ DAX Advanced Calculations  ✔️ Data Modeling & Relationships</p>
+      <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">Tableau</span><span class="tech-tag">Excel</span><span class="tech-tag">SQL</span><span class="tech-tag">Python EDA</span></div>
+    </div>
+  </section>
+
+  <!-- GEN AI + SKILLS -->
+  <section id="skills-ai" data-aos="fade-up">
+    <div class="ai-showcase">
+      <div class="ai-flex" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
+        <div>
+          <h2 style="font-size: 1.8rem;"><i class="fas fa-microchip"></i> Next-Gen Data Intelligence</h2>
+          <p style="opacity:0.85;">Gen AI, Claude, Gemini, Prompt Engineering — essential for modern data analytics roles.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+            <span class="ai-badge"><i class="fab fa-google"></i> Gemini Pro</span>
+            <span class="ai-badge"><i class="fas fa-robot"></i> Claude 3.5</span>
+            <span class="ai-badge"><i class="fas fa-brain"></i> Generative AI</span>
+            <span class="ai-badge"><i class="fas fa-comment-dots"></i> Prompt Engineering</span>
+            <span class="ai-badge"><i class="fas fa-code-branch"></i> LangChain/LangGraph</span>
+            <span class="ai-badge"><i class="fas fa-database"></i> RAG Pipelines</span>
+          </div>
+        </div>
+        <div><i class="fas fa-chalkboard-user" style="font-size: 3rem; opacity:0.8;"></i><p>Google Gen AI • RAG Bootcamp • Infosys Prompt Eng</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL SNAPSHOT + RESUME CONTEXT -->
+  <section id="about-me" data-aos="fade-up">
+    <h2 class="section-title"><i class="fas fa-user-astronaut"></i> Professional Snapshot</h2>
+    <div class="resume-snapshot">
+      <div class="grid-2col">
+        <div>
+          <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
+          <p><strong>Ericsson Global Pvt. Ltd. (Intern)</strong> | Jul 2025 – Present<br>Django web app for telecom datasets, reduced manual Excel work by 60%, SQL integration, UI/UX for complex workflows.</p>
+          <h3 style="margin-top:1rem;"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <p>🎓 AKTU University - B.Tech CS (81.36%)<br>📚 CBSE 12th: 89.4% | 10th: 96.6%</p>
+        </div>
+        <div>
+          <h3><i class="fas fa-certificate"></i> AI & Data Certifications</h3>
+          <ul style="list-style: none; padding-left: 0;">
+            <li>✔️ Bring AI to Work - Google 2025</li>
+            <li>✔️ Prompt Engineering - Infosys 2025</li>
+            <li>✔️ Data Analytics Essential - Cisco</li>
+            <li>✔️ Introduction to Generative AI (Google Cloud)</li>
+            <li>✔️ RAG Bootcamp (LangChain/LangGraph) - Udemy 2026</li>
+          </ul>
+          <h3><i class="fas fa-code"></i> Core Stack</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;"><span class="pill">Python/Pandas</span><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">SQL</span><span class="pill">LangChain</span></div>
+        </div>
+      </div>
+      <hr style="margin: 1.5rem 0;">
+      <div>
+        <h3><i class="fas fa-robot"></i> Gen AI applied to Analytics</h3>
+        <p>🔹 Automated narrative insights with Claude/Gemini prompts on raw data. 🔹 RAG pipelines for document Q&A (VitalIQ, SmartHire) → business data summarization. 🔹 Prompt-to-SQL for faster exploration. 🔹 Agentic workflows for anomaly detection & trend forecasting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Highlighted AI projects from Resume -->
+  <section data-aos="fade-up" style="margin-top: 2rem;">
+    <h2 class="section-title"><i class="fas fa-microphone-alt"></i> AI-Augmented Projects (LLM + RAG)</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <i class="fas fa-comments" style="font-size:2rem; color:#2563eb;"></i>
+        <h3>Ask-AI Chat Assistant</h3>
+        <p>Streamlit + LangGraph memory + SQLite persistent sessions + Resume Chat feature. Agentic workflows for real-time reasoning.</p>
+        <div class="tech-stack"><span class="tech-tag">Streamlit</span><span class="tech-tag">LangGraph</span><span class="tech-tag">Gemini/Claude</span></div>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-heartbeat" style="font-size:2rem; color:#2563eb;"></i>
+        <h3>VitalIQ Medical Chatbot</h3>
+        <p>RAG pipeline: LangChain + Pinecone + HuggingFace embeddings. 90% retrieval accuracy, medical domain Q&A.</p>
+        <div class="tech-stack"><span class="tech-tag">RAG</span><span class="tech-tag">Pinecone</span><span class="tech-tag">LangChain</span></div>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-user-check" style="font-size:2rem;"></i>
+        <h3>SmartHire AI System</h3>
+        <p>CVExtractorAgent + Llama-3 LLM shortlisting, embedding similarity matching, React dashboard for HR.</p>
+        <div class="tech-stack"><span class="tech-tag">Groq LLM</span><span class="tech-tag">Embeddings</span><span class="tech-tag">React</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & RESUME OPEN -->
+  <section id="contact" data-aos="fade-up" style="margin: 3rem 0;">
+    <div style="background: #ffffff; border-radius: 2rem; padding: 2rem; text-align: center; border: 1px solid #e2e8f0;">
+      <h2 style="font-weight: 700;">📄 Ready for Data Analyst Roles</h2>
+      <p style="margin: 1rem auto; max-width: 550px;">Turning complex data into strategic insights with Power BI, Python & Gen AI. Open to opportunities where analytics meets innovation.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:agarwalgurisha123@gmail.com" class="btn-primary"><i class="fas fa-envelope"></i> agarwalgurisha123@gmail.com</a>
+        <a href="https://www.linkedin.com/in/gaurisha-agarwal/" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/agarwalgaurisha" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
+        <a href="resume.pdf" target="_blank" class="btn-primary" style="background:#2c3e66;"><i class="fas fa-file-pdf"></i> View Full Resume (PDF)</a>
+      </div>
+      <p style="margin-top: 1.5rem;"><i class="fas fa-phone-alt"></i> +91 8077 664 901 • Uttar Pradesh, India</p>
+      <p style="margin-top: 0.5rem;"><i class="fas fa-certificate"></i> Gen AI • Claude • Gemini • Prompt Engineering — core assets for modern data analytics</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>© 2026 Gurisha Agarwal — Data Analytics & AI Portfolio | 8+ Power BI dashboards • Python EDA • Business Intelligence</p>
+  <p style="font-size:0.8rem">🚀 Transforming data into decisions with analytics + generative AI</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
